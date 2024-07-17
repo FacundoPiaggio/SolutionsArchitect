@@ -1,0 +1,42 @@
+/* Custom CSS styles */
+
+body {
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.jumbotron {
+    background-size: cover;
+    color: #4c4a4a;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.navbar-brand {
+    font-family: 'Harry Potter', cursive; /* Custom font for Harry Potter theme */
+}
+
+.footer {
+    color: white;
+}
+
+.card {
+    border: 1px solid #969595;
+    border-radius: 8px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.img-small {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

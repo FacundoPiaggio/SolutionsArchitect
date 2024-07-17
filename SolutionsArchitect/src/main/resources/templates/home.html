@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter World</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+    <script th:src="@{/js/AmplitudeInit.js}"></script>
+
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Harry Potter World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/home}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/houses}">Houses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Spells</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/about}" id="about-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/feedback}">Feedback</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container flex-grow-1 mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to the Harry Potter World!</h1>
+        <p class="lead">Explore the magical universe created by J.K. Rowling.</p>
+        <hr class="my-4">
+        <p>From Hogwarts School of Witchcraft and Wizardry to the mysterious creatures, immerse yourself in the enchanting world of Harry Potter.</p>
+        <button class="btn btn-primary btn-lg"  id="myButton" href="#" role="button">Get Started</button>
+    </div>
+</div>
+
+<footer class="footer py-3 bg-dark">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Harry Potter World. All rights reserved.</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+<script th:src="@{/js/TrackButtonPressed.js}"> </script>
+<script th:src="@{/js/about.js}"></script>
+
+</html>

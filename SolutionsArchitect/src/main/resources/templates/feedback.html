@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Harry Potter World</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+    <script th:src="@{/js/AmplitudeInit.js}"></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Harry Potter World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/houses}">Houses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Spells</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/about}" id="about-link">About</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/feedback}">Feedback</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container flex-grow-1 mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">We'd Love Your Feedback!</h1>
+        <p class="lead">Help us improve the Harry Potter World experience by sharing your thoughts with us.</p>
+        <hr class="my-4">
+        <p>Please fill out the form below to send us your feedback.</p>
+        <form id="feedbackForm" method="post" th:action="@{/feedback}">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="feedback">Feedback</label>
+                <textarea class="form-control" id="feedback" name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" id="submitButton">Submit Feedback</button>
+        </form>
+    </div>
+</div>
+
+<footer class="footer py-3 bg-dark">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Harry Potter World. All rights reserved.</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script th:src="@{js/Feedback.js}"> </script>
+<script th:src="@{/js/about.js}"></script>
+
+</body>
+</html>

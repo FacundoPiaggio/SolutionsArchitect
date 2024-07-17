@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Harry Potter World</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+    <script th:src="@{/js/AmplitudeInit.js}"></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Harry Potter World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/home}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/houses}">Houses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Spells</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/about}" id="about-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/feedback}">Feedback</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container flex-grow-1 mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">About the Challenge</h1>
+        <p class="lead">Learn more about my Solutions Architect challenge solution.</p>
+        <hr class="my-4">
+
+        <div>
+            <p>Para resolver la problematica planteada decidí desarrollar una aplicacion web basandome en la arquitectura cliente-servidor, con un cliente liviano.</p>
+            <p>Tomé esta eleccion, ya que la implementanción de amplitude la hice del lado del cliente, y como no se cuanto procesamiento amplitude puede costarle al cliente, decidí separar las responsabilidades. Por un lado, el servidor web renderizará las pantallas mediante el template engine thymeleaf, y por otro lado el navegador se encargará de trackear los eventos y de la implmentacion de amplitude.</p>
+            <p>De esta manera, la solución queda mas cohesiva, ya que cada componente resuelve menos responsabilidades, más mantenible a futuro y más performante para los dos componentes en conjunto, ya que no esta toda la responsabilidad en un unico lugar.</p>
+            <img th:src="@{/img/arquitectura.png}" alt="Arquitectura" class="img-small">
+        </div>
+
+        <div>
+            <p>Por otro lado, para integrarme con la api WizardWorldAPI utilicé la dependencia de Retrofit y desarrollé el servicio de la API utilizando el patron de diseño Adapter, este patrón nos garantiza una solución mas cohesiva ya que delega comportamiento, mayor mantenibilidad dado el nulo acoplamiento entre la clase que usa el adapter y la adaptada, y además es una solución mas testeable, ya que podrían implementarse mocks de algún adapter concreto.</p>
+            <img th:src="@{/img/clases.png}" alt="Clases" class="img-small">
+        </div>
+
+        <div>
+            <p>Respecto a las requests para las casas decidí guardar los objetos que recibimos de la api en una base de datos, y que cada vez que se solicite este recurso, primero intentar obtenerlo de la base. Si esta estuviera vacía se haría la request a la api. Esta solución nos proporciona de mayor performance, dado que de otra forma cada vez que nos soliciten las casas estaríamos haciendo una request a la api para volver a obtener los datos.</p>
+            <p>Para manejar el problema de que pasaría si la API actualiza los datos que envía, consideré dos soluciones diferentes. Por un lado podríamos implementar un cron job que corra cada cierto tiempo, encargado de actualizar la base con los datos actuales de la API. Por otro lado, y un poco mas sencillo, podemos implementar que cuando se haga la solicitud de las casas, guardar y revisar la fecha de ultima request a la api, en caso de que esta fecha haya pasado un rango aceptable en dias, podría repetirse la request y actualizar la base de ser necesario.</p>
+            <!--<img src="path_to_your_third_image" alt="Image 3">-->
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer py-3 bg-dark">
+    <div class="container text-center">
+        <span class="text-muted">© 2024 Harry Potter World. All rights reserved.</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script th:src="@{/js/about.js}"></script>
+</body>
+</html>
